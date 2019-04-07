@@ -5,30 +5,49 @@
     <title>События в браузере</title>
 
     <style>
-        .red_square {
-            width: 200px;
-            height: 200px;
+        .third {
+            width: 300px;
+            height: 300px;
             margin-right: auto;
             margin-left: auto;
+            border: 1px solid black;
+        }
+
+        .second {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            border: 1px solid black;
+        }
+
+        .first {
+            width: 100px;
+            height: 100px;
+            margin: auto;
             border: 1px solid black;
         }
     </style>
 </head>
 <body>
 <div>
-    <div class="red_square">Hello World!</div>
+    <div class="third">
+        <div class="second">
+            <div class="first"></div>
+        </div>
+    </div>
 </div>
 
 <script>
-    let redSquare = document.querySelector(".red_square");
-    let fn1 = (e) => e.target.style.backgroundColor = "red";
-    let fn2 = (e) => e.target.style.backgroundColor = "white";
-    let fn3 = (e) => e.target.style.color = "green";
+    let first = document.querySelector(".first");
+    let second = document.querySelector(".second");
+    let third = document.querySelector(".third");
 
-    redSquare.onmouseenter = fn1;
-    redSquare.onmouseleave = fn2;
-    redSquare.addEventListener("mouseenter", fn3);
-    redSquare.removeEventListener("mouseenter", fn3)
+    first.addEventListener("click", () => alert("first up"), false);
+    first.addEventListener("click", () => alert("first down"), true);
+    second.addEventListener("click", () => alert("second up"), false);
+    second.addEventListener("click", () => alert("second down"), true);
+    third.addEventListener("click", () => alert("third up"), false);
+    third.addEventListener("click", () => alert("third down"), true);
 </script>
 </body>
 </html>
