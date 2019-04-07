@@ -5,16 +5,30 @@
     <title>События в браузере</title>
 
     <style>
-
+        .red_square {
+            width: 200px;
+            height: 200px;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
 <div>
-    <button onclick="alert('Hello World!')" id="button">Click me</button>
+    <div class="red_square">Hello World!</div>
 </div>
 
 <script>
+    let redSquare = document.querySelector(".red_square");
+    let fn1 = (e) => e.target.style.backgroundColor = "red";
+    let fn2 = (e) => e.target.style.backgroundColor = "white";
+    let fn3 = (e) => e.target.style.color = "green";
 
+    redSquare.onmouseenter = fn1;
+    redSquare.onmouseleave = fn2;
+    redSquare.addEventListener("mouseenter", fn3);
+    redSquare.removeEventListener("mouseenter", fn3)
 </script>
 </body>
 </html>
