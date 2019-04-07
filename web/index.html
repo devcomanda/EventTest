@@ -38,16 +38,18 @@
 </div>
 
 <script>
-    let first = document.querySelector(".first");
-    let second = document.querySelector(".second");
     let third = document.querySelector(".third");
+    let first = document.querySelector(".first");
+    let count = 0;
 
-    first.addEventListener("click", () => alert("first up"), false);
-    first.addEventListener("click", () => alert("first down"), true);
-    second.addEventListener("click", () => alert("second up"), false);
-    second.addEventListener("click", () => alert("second down"), true);
-    third.addEventListener("click", () => alert("third up"), false);
-    third.addEventListener("click", () => alert("third down"), true);
+    third.addEventListener("open", () => console.log("Event Open!!!"))
+    third.addEventListener("click", () => {
+        count++;
+        first.innerText = count;
+    if(count %2 === 0) {
+        let event = new Event("open");
+        third.dispatchEvent(event);
+    }});
 </script>
 </body>
 </html>
